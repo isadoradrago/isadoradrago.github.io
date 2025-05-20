@@ -9,13 +9,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="css/style.css" rel="stylesheet">
+
+  <script> 
+    function loadContent(id, filename) { 
+        fetch(filename) 
+            .then(response => response.text()) 
+            .then(data => { 
+                document.getElementById(id).innerHTML = data; 
+            }); 
+    } 
+    window.onload = function() { 
+        loadContent('header', 'header.html'); 
+    }; 
+</script> 
 </head>
 
 <body>
 
-  <iframe src="header.html"></iframe>
+    
 
-
+    <div id="header"></div> 
 </body>
 
 </html>
