@@ -22,6 +22,19 @@
     window.onload = function() { 
         loadContent('header', 'header.html'); 
     }; 
+
+    fetch('images/')
+    .then(response => response.json())
+        .then(data => {
+            data.forEach(fileName => {
+            const img = document.createElement('img');
+            img.src = 'images/' + fileName;
+            img.class = 'gallery'
+            document.getElementById('div_gallery').insertBefore(img, 'div_gallery'.firstChild);
+            });
+        })
+         .catch(error => console.error(error));
+
 </script> 
 </head>
 
@@ -29,16 +42,18 @@
     <div id="header"></div> 
 
     <br>
-    <img class="gallery" src="images/P5230160.JPEG">
-    <img class="gallery" src="images/P5230157.JPEG">
-    <img class="gallery" src="images/IMG_2970.jpg" alt="squanto">
-    <img class="gallery" src="images/IMG_2938.jpg" alt="latte">
-    <img class="gallery" src="images/IMG_2947.jpg" alt="good">
-    <img class="gallery" src="images/IMG_2899.jpg" alt="good">
-    <img class="gallery" src="images/IMG_3027.jpg" alt="poster">
-    <img class="gallery" src="images/IMG_0750.JPG" alt="court">
-    <img class="gallery" src="images/IMG_2907.jpg" alt="weasel">
-    <img class="gallery" src="images/P4050221.JPEG" alt="rock">
+    <div id="div_gallery">
+        <img class="gallery" src="images/P5230160.JPEG">
+        <img class="gallery" src="images/P5230157.JPEG">
+        <img class="gallery" src="images/IMG_2970.jpg" alt="squanto">
+        <img class="gallery" src="images/IMG_2938.jpg" alt="latte">
+        <img class="gallery" src="images/IMG_2947.jpg" alt="good">
+        <img class="gallery" src="images/IMG_2899.jpg" alt="good">
+        <img class="gallery" src="images/IMG_3027.jpg" alt="poster">
+        <img class="gallery" src="images/IMG_0750.JPG" alt="court">
+        <img class="gallery" src="images/IMG_2907.jpg" alt="weasel">
+        <img class="gallery" src="images/P4050221.JPEG" alt="rock">
+    </div>
 </body>
 
 </html>
