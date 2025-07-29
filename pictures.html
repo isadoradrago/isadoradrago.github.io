@@ -29,8 +29,8 @@
             data.forEach(fileName => {
             const img = document.createElement('img');
             img.src = 'images/' + fileName;
-            img.class = 'gallery'
-            document.getElementById('div_gallery').insertBefore(img, 'div_gallery'.firstChild);
+            img.class = 'gallery';
+            document.getElementById('div_gallery').appendChild(img);
             });
         })
          .catch(error => console.error(error));
