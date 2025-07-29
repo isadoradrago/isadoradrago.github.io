@@ -24,16 +24,16 @@
     }; 
 
     fetch('images/')
-    .then(response => response.json())
+        .then(response => response.json())
         .then(data => {
             data.forEach(fileName => {
-            const img = document.createElement('img');
-            img.src = 'images/' + fileName;
-            img.class = 'gallery';
-            document.getElementById('div_gallery').appendChild(img);
+                const img = document.createElement('img');
+                img.src = 'images/' + fileName;
+                img.class = 'gallery';
+                document.getElementById('div_gallery').appendChild(img);
             });
         })
-         .catch(error => console.error(error));
+        .catch(error => console.error(error));
 
 </script> 
 </head>
