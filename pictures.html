@@ -23,7 +23,7 @@
         loadContent('header', 'header.html'); 
     }; 
 
-    fetch('images')
+    fetch('/tree/main/images')
         .then(response => response.json())
         .then(imgData => {
             console.log(imgData);
