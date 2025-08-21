@@ -23,7 +23,9 @@
         loadContent('header', 'header.html'); 
     }; 
 
-    fetch('/resources/images/')
+
+    imgPath = '/images/'
+    fetch(imgPath)
         .then(response => response.json())
         .then(imgData => {
             console.log(imgData);
