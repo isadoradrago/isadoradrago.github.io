@@ -24,7 +24,7 @@
     }; 
 
     fetch('images/')
-        .then(response => response.json())
+        .then(response => response.text())
         .then(data => {
             print(data);
             data.forEach(fileName => {
