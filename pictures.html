@@ -26,7 +26,7 @@
     fetch('images/')
         .then(response => response.json())
         .then(data => {
-            console(data);
+            print(data);
             data.forEach(fileName => {
                 const img = document.createElement('img');
                 img.src = 'images/' + fileName;
