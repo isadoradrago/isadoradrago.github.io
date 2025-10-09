@@ -32,6 +32,7 @@
             imgData.forEach(fileName => {
                 const img = document.createElement('img');
                 img.src = 'images/' + fileName;
+                console.log(img.src);
                 img.class = 'gallery';
                 document.getElementById('div_gallery').appendChild(img);
             });
