@@ -24,20 +24,41 @@
     }; 
 
 
-    imgPath = '/images/'
-    fetch(imgPath)
-        .then(response => response.json())
-        .then(imgData => {
-            console.log(imgData);
-            imgData.forEach(fileName => {
-                const img = document.createElement('img');
-                img.src = 'images/' + fileName;
-                console.log(img.src);
-                img.class = 'gallery';
-                document.getElementById('div_gallery').appendChild(img);
-            });
-        })
-        .catch(error => console.error(error));
+    // imgPath = 'images'
+    // fetch(imgPath)
+    //     .then(response => response.json())
+    //     .then(imgData => {
+    //         console.log(imgData);
+    //         imgData.forEach(fileName => {
+    //             const img = document.createElement('img');
+    //             img.src = 'images/' + fileName;
+    //             console.log(img.src);
+    //             img.class = 'gallery';
+    //             document.getElementById('div_gallery').appendChild(img);
+    //         });
+    //     })
+    //     .catch(error => console.error(error));
+
+    var fs = require('fs');
+    var path = require('path');
+
+    // Loop through all the files in the temp directory
+    fs.readdir("images/"), function (err, files) {
+    if (err) {
+        console.error("Could not list the directory.", err);
+        process.exit(1);
+    }
+
+    files.forEach(function (file, index) {
+        // Make one pass and make the file complete
+        const img = document.createElement('img');
+        img.src = 'images/' + file;
+        console.log(img.src);
+        img.class = 'gallery';
+        document.getElementById('div_gallery').appendChild(img);
+    });
+
+
 
 </script> 
 </head>
