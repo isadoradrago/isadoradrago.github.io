@@ -48,7 +48,7 @@
             {
                 
                 const img = document.createElement('img');
-                img.src = 'images/' + foundFiles.Next();
+                img.src = 'images/' + foundFiles.Next().Name;
                 console.log(img.src);
                 img.class = 'gallery';
                 document.getElementById('div_gallery').appendChild(img);
@@ -56,7 +56,7 @@
         else
             Log.Message("No files were found.");
     }
-
+    
 
 </script> 
 </head>
