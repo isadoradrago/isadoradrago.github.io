@@ -39,25 +39,23 @@
     //     })
     //     .catch(error => console.error(error));
 
-    var fs = require('fs');
-    var path = require('path');
-
-    // Loop through all the files in the temp directory
-    fs.readdir("images/"), function (err, files) {
-        if (err) {
-            console.error("Could not list the directory.", err);
-            process.exit(1);
-        }
-
-        files.forEach(function (file, index) {
-            // Make one pass and make the file complete
-            const img = document.createElement('img');
-            img.src = 'images/' + file;
-            console.log(img.src);
-            img.class = 'gallery';
-            document.getElementById('div_gallery').appendChild(img);
-        });
-    };
+    function FileFinder()
+    {
+        var foundFiles, aFile;
+        foundFiles = aqFileSystem.FindFiles("images/");
+        if (!strictEqual(foundFiles, null))
+            while (foundFiles.HasNext())
+            {
+                
+                const img = document.createElement('img');
+                img.src = 'images/' + foundFiles.Next();
+                console.log(img.src);
+                img.class = 'gallery';
+                document.getElementById('div_gallery').appendChild(img);
+            }
+        else
+            Log.Message("No files were found.");
+    }
 
 
 </script> 
